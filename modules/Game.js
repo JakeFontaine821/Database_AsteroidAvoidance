@@ -2,10 +2,14 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 var Schema = new Schema({
-    game:{
+    name:{
         type:String,
+        require:true
+    },    
+    highscore:{
+        type:Number,
         require:true
     }
 });
 
-mongoose.model("game", Schema);
+mongoose.model("highscore", Schema);
