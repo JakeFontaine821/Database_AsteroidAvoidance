@@ -24,14 +24,24 @@ var HighScore = mongoose.model("highscore");
 //example routes
 app.get("/", function(req, res){
     res.redirect("index.html");
+
+    
 })
 
 app.post("/newHighscore", function(req, res){
-    console.log(req.body);
+    //console.log(req.body);
 
-    //new HighScore(req.body).save();
+    new HighScore(req.body).save().then(
+        function(){
+            res.redirect('index.html');
+        }
+    )    
+})
 
-    //res.redirect('index.html');
+app.get("/getHighScores", function(req, res){
+    HighScore.find({}).then(function(highscores){
+        res.json({highscores});
+    })
 })
 
 app.use(express.static(__dirname+"/pages"));

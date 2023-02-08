@@ -347,18 +347,5 @@ function scoreTimer(){
 }
 
 function NewHighScore(){
-    var name = document.getElementById("PlayerName").value;
-
-    var listaddition = document.createElement("li");
-    listaddition.innerHTML = name + " : " + highScore;
-    document.getElementById("leaderboard").appendChild(listaddition);
-
-    //alert(name);
-    //alert(highScore);
-    
-    //location.reload();
-//     fetch("/newHighscore", {
-//         "name": document.getElementById("PlayerName").value,
-//         "highscore": highscore
-//     });
+    document.getElementById("highscore").value = highScore;
 }
