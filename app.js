@@ -31,7 +31,7 @@ app.post("/newHighscore", function(req, res){
 
     //new HighScore(req.body).save();
 
-    res.redirect('index.html');
+    //res.redirect('index.html');
 })
 
 app.use(express.static(__dirname+"/pages"));

@@ -347,9 +347,15 @@ function scoreTimer(){
 }
 
 function NewHighScore(){
-    alert(document.getElementById("PlayerName").value);
-    alert(highScore);
+    var name = document.getElementById("PlayerName").value;
 
+    var listaddition = document.createElement("li");
+    listaddition.innerHTML = name + " : " + highScore;
+    document.getElementById("leaderboard").appendChild(listaddition);
+
+    //alert(name);
+    //alert(highScore);
+    
     //location.reload();
 //     fetch("/newHighscore", {
 //         "name": document.getElementById("PlayerName").value,
