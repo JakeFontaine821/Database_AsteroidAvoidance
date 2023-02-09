@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="display: block; justify-content: center;">
+
+    <h1>Leaderboard!</h1>
+
+    <ol id="leaderboard">
+
+    </ol>
+
+    <script>
+        fetch("/getHighScores").then(function(scores){
+            scores.json().then(function(TheScores){
+                // console.log(TheScores);
+
+                // for(let listScores of TheScores.highscores){
+                //     var gameElement = document.createElement("li");
+                //     gameElement.innerHTML = listScores.name + " : " + listScores.highscore;
+                //     document.getElementById("leaderboard").appendChild(gameElement);
+                // }
+
+                var orderedScores = TheScores.highscores;
+                console.log(orderedScores);
+
+                for(var i = 0; i < orderedScores.length; i++){
+                    for(var j = 0; j < orderedScores.length - 1; j++){
+                        if(orderedScores[j].highscore  < orderedScores[j + 1].highscore){
+
+                            var temp = orderedScores[j];
+                            orderedScores[j] = orderedScores[j + 1];
+                            orderedScores[j + 1] = temp;
+                        }
+                    }
+                }
+
+                for(var i = 0; i < 10; i++){
+                    var gameElement = document.createElement("li");
+                    gameElement.innerHTML = orderedScores[i].name + " : " + orderedScores[i].highscore;
+                    document.getElementById("leaderboard").appendChild(gameElement);
+                }                
+            })
+        })
+    </script>
+</body>
+</html>
