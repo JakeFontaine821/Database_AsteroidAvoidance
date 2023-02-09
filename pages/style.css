@@ -1,0 +1,27 @@
+html,body{
+    height: 100%;
+    margin: 0;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    background-color: #1f1f1f;
+}
+
+#container{
+    width: 1000px;
+    padding: 10px;
+    background-color: #4f4f4f;
+}
+
+#nav{
+    display: flex;
+    justify-content: center;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
